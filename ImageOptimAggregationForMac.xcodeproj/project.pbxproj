@@ -12,7 +12,7 @@
 		E48E01C822C5EE2F00A4E956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48E01C722C5EE2F00A4E956 /* Assets.xcassets */; };
 		E48E01CB22C5EE2F00A4E956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48E01C922C5EE2F00A4E956 /* Main.storyboard */; };
 		E48E01CE22C5EE2F00A4E956 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48E01CD22C5EE2F00A4E956 /* main.m */; };
-		E48E01DB22C8DF0D00A4E956 /* imageoptim in Resources */ = {isa = PBXBuildFile; fileRef = E48E01DA22C8DF0D00A4E956 /* imageoptim */; };
+		E4EEBF9A23169B08008CFB4A /* imageoptim in Resources */ = {isa = PBXBuildFile; fileRef = E4EEBF9923169B08008CFB4A /* imageoptim */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		E48E01CC22C5EE2F00A4E956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E48E01CD22C5EE2F00A4E956 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E48E01CF22C5EE2F00A4E956 /* ImageOptimAggregationForMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageOptimAggregationForMac.entitlements; sourceTree = "<group>"; };
-		E48E01DA22C8DF0D00A4E956 /* imageoptim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = imageoptim; sourceTree = "<group>"; };
+		E4EEBF9923169B08008CFB4A /* imageoptim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = imageoptim; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,7 @@
 		E48E01C022C5EE2D00A4E956 /* ImageOptimAggregationForMac */ = {
 			isa = PBXGroup;
 			children = (
-				E48E01DA22C8DF0D00A4E956 /* imageoptim */,
+				E4EEBF9923169B08008CFB4A /* imageoptim */,
 				E48E01C122C5EE2D00A4E956 /* AppDelegate.h */,
 				E48E01C222C5EE2D00A4E956 /* AppDelegate.m */,
 				E48E01C422C5EE2D00A4E956 /* ViewController.h */,
@@ -131,7 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48E01C822C5EE2F00A4E956 /* Assets.xcassets in Resources */,
-				E48E01DB22C8DF0D00A4E956 /* imageoptim in Resources */,
+				E4EEBF9A23169B08008CFB4A /* imageoptim in Resources */,
 				E48E01CB22C5EE2F00A4E956 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
