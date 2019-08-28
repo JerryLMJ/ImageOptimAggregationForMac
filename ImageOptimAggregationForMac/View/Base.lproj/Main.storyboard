@@ -728,10 +728,10 @@
                                 <buttonCell key="cell" type="push" title="选择文件夹" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="Xio-Cz-2LG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="clickFileBtn:" target="XfG-lQ-9wD" id="yHP-rF-L3Y"/>
+                                    </connections>
                                 </buttonCell>
-                                <connections>
-                                    <action selector="clickFileBtn:" target="XfG-lQ-9wD" id="fxe-Bz-n0v"/>
-                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5JZ-ae-Y2b">
                                 <rect key="frame" x="24" y="168" width="432" height="36"/>

@@ -13,6 +13,7 @@
 		E48E01CB22C5EE2F00A4E956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48E01C922C5EE2F00A4E956 /* Main.storyboard */; };
 		E48E01CE22C5EE2F00A4E956 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48E01CD22C5EE2F00A4E956 /* main.m */; };
 		E4EEBF9A23169B08008CFB4A /* imageoptim in Resources */ = {isa = PBXBuildFile; fileRef = E4EEBF9923169B08008CFB4A /* imageoptim */; };
+		E4EEBF9D23169D15008CFB4A /* ImageOptimCli.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EEBF9C23169D15008CFB4A /* ImageOptimCli.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		E48E01CD22C5EE2F00A4E956 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E48E01CF22C5EE2F00A4E956 /* ImageOptimAggregationForMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageOptimAggregationForMac.entitlements; sourceTree = "<group>"; };
 		E4EEBF9923169B08008CFB4A /* imageoptim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = imageoptim; sourceTree = "<group>"; };
+		E4EEBF9B23169D15008CFB4A /* ImageOptimCli.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageOptimCli.h; sourceTree = "<group>"; };
+		E4EEBF9C23169D15008CFB4A /* ImageOptimCli.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageOptimCli.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,18 +62,52 @@
 		E48E01C022C5EE2D00A4E956 /* ImageOptimAggregationForMac */ = {
 			isa = PBXGroup;
 			children = (
-				E4EEBF9923169B08008CFB4A /* imageoptim */,
-				E48E01C122C5EE2D00A4E956 /* AppDelegate.h */,
-				E48E01C222C5EE2D00A4E956 /* AppDelegate.m */,
-				E48E01C422C5EE2D00A4E956 /* ViewController.h */,
-				E48E01C522C5EE2D00A4E956 /* ViewController.m */,
+				E4EEBFA123169D9C008CFB4A /* Lib */,
+				E4EEBFA023169D93008CFB4A /* Helper */,
+				E4EEBF9F23169D88008CFB4A /* View */,
+				E4EEBF9E23169D6B008CFB4A /* Supporting Files */,
+			);
+			path = ImageOptimAggregationForMac;
+			sourceTree = "<group>";
+		};
+		E4EEBF9E23169D6B008CFB4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				E48E01C722C5EE2F00A4E956 /* Assets.xcassets */,
-				E48E01C922C5EE2F00A4E956 /* Main.storyboard */,
 				E48E01CC22C5EE2F00A4E956 /* Info.plist */,
 				E48E01CD22C5EE2F00A4E956 /* main.m */,
 				E48E01CF22C5EE2F00A4E956 /* ImageOptimAggregationForMac.entitlements */,
 			);
-			path = ImageOptimAggregationForMac;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4EEBF9F23169D88008CFB4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E48E01C122C5EE2D00A4E956 /* AppDelegate.h */,
+				E48E01C222C5EE2D00A4E956 /* AppDelegate.m */,
+				E48E01C422C5EE2D00A4E956 /* ViewController.h */,
+				E48E01C522C5EE2D00A4E956 /* ViewController.m */,
+				E48E01C922C5EE2F00A4E956 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4EEBFA023169D93008CFB4A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E4EEBF9B23169D15008CFB4A /* ImageOptimCli.h */,
+				E4EEBF9C23169D15008CFB4A /* ImageOptimCli.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		E4EEBFA123169D9C008CFB4A /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				E4EEBF9923169B08008CFB4A /* imageoptim */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +182,7 @@
 			files = (
 				E48E01C622C5EE2D00A4E956 /* ViewController.m in Sources */,
 				E48E01CE22C5EE2F00A4E956 /* main.m in Sources */,
+				E4EEBF9D23169D15008CFB4A /* ImageOptimCli.m in Sources */,
 				E48E01C322C5EE2D00A4E956 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,11 +316,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ImageOptimAggregationForMac/ImageOptimAggregationForMac.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "ImageOptimAggregationForMac/Supporting Files/ImageOptimAggregationForMac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BEDD2XY992;
-				INFOPLIST_FILE = ImageOptimAggregationForMac/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ImageOptimAggregationForMac/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -296,11 +334,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ImageOptimAggregationForMac/ImageOptimAggregationForMac.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "ImageOptimAggregationForMac/Supporting Files/ImageOptimAggregationForMac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BEDD2XY992;
-				INFOPLIST_FILE = ImageOptimAggregationForMac/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ImageOptimAggregationForMac/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

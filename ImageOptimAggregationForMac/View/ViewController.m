@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 #import <CoreServices/CoreServices.h>
+#import "ImageOptimCli.h"
 
 void fsevents_callback(ConstFSEventStreamRef streamRef,
                        void *userData,
@@ -16,6 +17,7 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
                        void *eventPaths,
                        const FSEventStreamEventFlags eventFlags[],
                        const FSEventStreamEventId eventIds[]);
+
 
 @interface ViewController()
 
@@ -35,31 +37,13 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
 - (void)viewDidLoad {
     [super viewDidLoad];
     _imageLogs = [NSMutableArray array];
-    // Do any additional setup after loading the view.
 }
 
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
 }
 
-- (IBAction)clickFileBtn:(id)sender {
-    
-    NSOpenPanel *panel = [NSOpenPanel openPanel];
-    [panel setCanChooseFiles:NO];//是否能选择文件file
-    [panel setCanChooseDirectories:YES];//是否能打开文件夹
-    [panel setAllowsMultipleSelection:NO];//是否允许多选file
-    if ([panel runModal] == NSModalResponseOK) {
-        for (NSURL *url in [panel URLs]) {
-            _filePathInput.stringValue = [url.absoluteString substringFromIndex:7];
-        }
-    }
-}
-- (IBAction)startWatchClicked:(id)sender {
-    [self startWatch];
-}
 
 - (void)startWatch {
     if(self.syncEventStream) {
@@ -88,40 +72,19 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
     }
 }
 
-#pragma mark - Process File
-- (void)processFile:(NSString *)filePath {
+
+#pragma mark - Process Filepath
+- (void)processFilePath:(NSString *)filePath{
     if ([_imageLogs containsObject:filePath]) return;
     if ([filePath hasSuffix:@".png"] |
         [filePath hasSuffix:@".jpg"] |
         [filePath hasSuffix:@".jpeg"] ) {
         NSLog(@"----filePath : %@", filePath);
         [_imageLogs addObject:filePath];
-        
-
-        NSPipe *pipe = [NSPipe pipe];
-        NSFileHandle *file = pipe.fileHandleForReading;
-        
-        NSTask *task = [[NSTask alloc] init];
-        task.standardOutput = pipe;
-        NSString * lanchPath = [[NSBundle mainBundle] pathForResource:@"imageoptim" ofType:nil];
-        NSLog(@"----lanchPath : %@",lanchPath);
-        task.launchPath = lanchPath;
-        NSArray *arguments = @[[NSString stringWithFormat:@"%@", filePath]];
-        NSLog(@"----arguments : %@",arguments);
-        task.arguments = arguments;
-        task.terminationHandler = ^(NSTask * _Nonnull task) {
-            NSLog(@"----finished");
-        };
-        [task launch];
-        
-        
-        // 输出执行log
-        NSData *data = [file readDataToEndOfFile];
-        [file closeFile];
-        NSString *grepOutput = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-        NSLog (@"----grep returned :\n%@", grepOutput);
+        [ImageOptimCli processFile:filePath];
     }
 }
+
 
 #pragma mark - private method
 -(void)updateEventID {
@@ -136,6 +99,22 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
         syncEventID = kFSEventStreamEventIdSinceNow;
     }
     return syncEventID;
+}
+
+#pragma mark - Btn Actions
+- (IBAction)clickFileBtn:(id)sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseFiles:NO];//是否能选择文件file
+    [panel setCanChooseDirectories:YES];//是否能打开文件夹
+    [panel setAllowsMultipleSelection:NO];//是否允许多选file
+    if ([panel runModal] == NSModalResponseOK) {
+        for (NSURL *url in [panel URLs]) {
+            _filePathInput.stringValue = [url.absoluteString substringFromIndex:7];
+        }
+    }
+}
+- (IBAction)startWatchClicked:(id)sender {
+    [self startWatch];
 }
 
 @end
@@ -161,7 +140,7 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
             if (currentEventID == lastRenameEventID + 1) {
                 // 重命名或者是移动文件
                 NSLog(@"mv %@ %@", lastPath, currentPath);
-                [self processFile:currentPath];
+                [self processFilePath:currentPath];
             } else {
                 // 其他情况, 例如移动进来一个文件, 移动出去一个文件, 移动文件到回收站
                 if ([[NSFileManager defaultManager] fileExistsAtPath:currentPath]) {
@@ -184,4 +163,6 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
     }
     [self updateEventID];
 }
+
+
 
