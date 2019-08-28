@@ -10,6 +10,7 @@
 
 #import <CoreServices/CoreServices.h>
 #import "ImageOptimCli.h"
+#import "AppInstalledHelper.h"
 
 void fsevents_callback(ConstFSEventStreamRef streamRef,
                        void *userData,
@@ -37,6 +38,9 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
 - (void)viewDidLoad {
     [super viewDidLoad];
     _imageLogs = [NSMutableArray array];
+    //imagealpha // net.pornel.ImageAlpha
+    //iamgeoptim // net.pornel.ImageOptim
+    NSLog(@"aaa--- %@", [AppInstalledHelper isInstallAppOfBundleIdentifier:@"net.pornel.ImageAlpha"] ? @"yes" : @"no");
 }
 
 
