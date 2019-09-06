@@ -11,6 +11,7 @@
 @implementation ImageOptimCli
 
 + (void)processFile:(NSString *)filePath {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DetailLog" object:@{@"type": @"path", @"detail": filePath } userInfo:nil];
     NSPipe *pipe = [NSPipe pipe];
     NSFileHandle *file = pipe.fileHandleForReading;
     
@@ -32,6 +33,7 @@
     NSData *data = [file readDataToEndOfFile];
     [file closeFile];
     NSString *grepOutput = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DetailLog" object:@{@"type": @"detail", @"detail": grepOutput } userInfo:nil];
     NSLog (@"----grep returned :\n%@", grepOutput);
 }
 

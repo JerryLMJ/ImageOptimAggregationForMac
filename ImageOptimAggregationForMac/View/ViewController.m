@@ -23,6 +23,15 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
 @interface ViewController()
 
 @property (weak) IBOutlet NSTextField *filePathInput;
+@property (weak) IBOutlet NSButtonCell *watchBtn;
+
+@property (weak) IBOutlet NSImageView *imageOptimIcon;
+@property (weak) IBOutlet NSImageView *imageAlphaIcon;
+@property (weak) IBOutlet NSImageView *jpegMiniIcon;
+
+@property (weak) IBOutlet NSScrollView *detailScrollView;
+@property (unsafe_unretained) IBOutlet NSTextView *detailTextView;
+
 
 @property(nonatomic) NSInteger syncEventID;
 @property(nonatomic, assign) FSEventStreamRef syncEventStream;
@@ -32,17 +41,52 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
 @implementation ViewController
 {
     NSMutableArray * _imageLogs;
+    NSMutableAttributedString * _detailAttributStr;
+    BOOL _isWatching;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logDetail:) name:@"DetailLog" object:nil];
+    
+    _isWatching = NO;
     _imageLogs = [NSMutableArray array];
-    //imagealpha // net.pornel.ImageAlpha
-    //iamgeoptim // net.pornel.ImageOptim
-    NSLog(@"aaa--- %@", [AppInstalledHelper isInstallAppOfBundleIdentifier:@"net.pornel.ImageAlpha"] ? @"yes" : @"no");
+    _detailAttributStr = [[NSMutableAttributedString alloc] initWithString:@"------- detail --------"];
+    
+    NSImage * trueIcon  = [NSImage imageNamed:@"true"];
+    NSImage * falseIcon = [NSImage imageNamed:@"false"];
+    
+    _imageOptimIcon.image = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"net.pornel.ImageOptim"] ? trueIcon : falseIcon;
+    _imageAlphaIcon.image = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"net.pornel.ImageAlpha"] ? trueIcon : falseIcon;
+    _jpegMiniIcon.image   = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"com.icvt.JPEGmini-Pro-retail"] ? trueIcon : falseIcon;
 }
 
+
+- (void)logDetail:(NSNotification *)notification {
+    NSDictionary * info = [notification object];
+    NSString * type = [info objectForKey:@"type"];
+    NSString * detail = [info objectForKey:@"detail"];
+    if ([type isEqualToString:@"path"]) {
+        NSString * str = [NSString stringWithFormat:@"\n%@", detail];
+        NSMutableAttributedString * attributStr = [[NSMutableAttributedString alloc] initWithString:str];
+        [attributStr addAttribute:NSFontAttributeName
+                        value:[NSFont boldSystemFontOfSize:14.f]
+                        range:NSMakeRange(0, str.length)];
+        [_detailAttributStr insertAttributedString:attributStr atIndex:_detailAttributStr.length];
+    }
+    if ([type isEqualToString:@"detail"]) {
+        NSString * str = [NSString stringWithFormat:@"\n%@", [info objectForKey:@"detail"]];
+        NSMutableAttributedString * attributStr = [[NSMutableAttributedString alloc] initWithString:str];
+        [attributStr addAttribute:NSForegroundColorAttributeName
+                            value:[NSColor grayColor]
+                            range:NSMakeRange(0, str.length)];
+        [_detailAttributStr insertAttributedString:attributStr atIndex:_detailAttributStr.length];
+    }
+  
+    [[_detailTextView textStorage] setAttributedString:_detailAttributStr];
+    [_detailScrollView.contentView scrollToPoint:CGPointMake(0, _detailScrollView.contentView.frame.size.height)];
+}
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
@@ -66,6 +110,8 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
     self.syncEventStream = FSEventStreamCreate(NULL, &fsevents_callback, &context, (__bridge CFArrayRef _Nonnull)(paths), self.syncEventID, 1, kFSEventStreamCreateFlagFileEvents | kFSEventStreamCreateFlagUseCFTypes);
     FSEventStreamScheduleWithRunLoop(self.syncEventStream, CFRunLoopGetMain(), kCFRunLoopDefaultMode);
     FSEventStreamStart(self.syncEventStream);
+    _isWatching = YES;
+    [_watchBtn setTitle:@"停止监控"];
 }
 - (void)stopWatch {
     if(self.syncEventStream) {
@@ -73,6 +119,8 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
         FSEventStreamInvalidate(self.syncEventStream);
         FSEventStreamRelease(self.syncEventStream);
         self.syncEventStream = NULL;
+        _isWatching = NO;
+        [_watchBtn setTitle:@"开始监控"];
     }
 }
 
@@ -118,7 +166,11 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
     }
 }
 - (IBAction)startWatchClicked:(id)sender {
-    [self startWatch];
+    if (_isWatching) {
+        [self stopWatch];
+    } else {
+        [self startWatch];
+    }
 }
 
 @end
