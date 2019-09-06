@@ -747,9 +747,8 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nMe-wC-8K8">
-                                <rect key="frame" x="28" y="165" width="84" height="20"/>
+                                <rect key="frame" x="98" y="165" width="78" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="vts-Pz-Qgy"/>
                                     <constraint firstAttribute="height" constant="20" id="yzu-qQ-mhZ"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="ImageOptim" id="Xjf-Fo-MvJ">
@@ -758,11 +757,22 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z4m-BT-jiO">
+                                <rect key="frame" x="28" y="165" width="64" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="G2k-NH-KnR"/>
+                                    <constraint firstAttribute="width" constant="60" id="Qub-Zt-eLT"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="依赖软件:" id="Fk1-Bw-tab">
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5dp-1n-3Yt">
-                                <rect key="frame" x="28" y="140" width="84" height="20"/>
+                                <rect key="frame" x="98" y="140" width="76" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="By8-LD-Mn3"/>
-                                    <constraint firstAttribute="width" constant="80" id="WBL-dC-Pwt"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="ImageAlpha" id="7jt-cK-dWa">
                                     <font key="font" metaFont="system"/>
@@ -771,10 +781,9 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yqn-EM-gaw">
-                                <rect key="frame" x="28" y="115" width="84" height="20"/>
+                                <rect key="frame" x="98" y="115" width="62" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="M3w-0u-5Eo"/>
-                                    <constraint firstAttribute="width" constant="80" id="kPh-vf-hjt"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="JPEGmini" id="RJw-hW-W11">
                                     <font key="font" metaFont="system"/>
@@ -782,29 +791,67 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4OH-UW-J79">
-                                <rect key="frame" x="120" y="165" width="20" height="20"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hIp-aR-DeJ">
+                                <rect key="frame" x="228" y="165" width="88" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="19J-Dp-37S"/>
-                                    <constraint firstAttribute="width" constant="20" id="TPd-BV-Wfe"/>
+                                    <constraint firstAttribute="height" constant="20" id="Osd-i3-6Q9"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="JPEGmini Lite" id="IDo-T4-bec">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fqs-xz-5rn">
+                                <rect key="frame" x="228" y="140" width="86" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Mgo-Do-RRH"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="JPEGmini Pro" id="att-O6-7Zd">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4OH-UW-J79">
+                                <rect key="frame" x="184" y="167" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="19J-Dp-37S"/>
+                                    <constraint firstAttribute="width" constant="16" id="TPd-BV-Wfe"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="EkV-Ay-B0n"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LLl-l8-10D">
-                                <rect key="frame" x="120" y="140" width="20" height="20"/>
+                                <rect key="frame" x="182" y="142" width="16" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="H4M-jf-Jht"/>
-                                    <constraint firstAttribute="height" constant="20" id="kLK-0W-A5j"/>
+                                    <constraint firstAttribute="width" constant="16" id="H4M-jf-Jht"/>
+                                    <constraint firstAttribute="height" constant="16" id="kLK-0W-A5j"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="XVj-aV-j7k"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ga0-X9-bGd">
-                                <rect key="frame" x="120" y="115" width="20" height="20"/>
+                                <rect key="frame" x="168" y="117" width="16" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="6vN-e7-pEo"/>
-                                    <constraint firstAttribute="width" constant="20" id="Yc5-dS-7o6"/>
+                                    <constraint firstAttribute="height" constant="16" id="6vN-e7-pEo"/>
+                                    <constraint firstAttribute="width" constant="16" id="Yc5-dS-7o6"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="R9b-eB-VuE"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ws7-00-mrp">
+                                <rect key="frame" x="324" y="167" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="H0w-My-nje"/>
+                                    <constraint firstAttribute="width" constant="16" id="KVJ-a8-Cew"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="o2d-EU-pcG"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pCa-Iz-fxn">
+                                <rect key="frame" x="322" y="142" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="37u-pm-9sL"/>
+                                    <constraint firstAttribute="height" constant="16" id="cJw-DL-kSm"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="yxS-Ul-xl3"/>
                             </imageView>
                             <scrollView borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nX6-JL-Z2t">
                                 <rect key="frame" x="30" y="25" width="420" height="82"/>
@@ -834,32 +881,40 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="nMe-wC-8K8" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="0BW-hV-Of3"/>
                             <constraint firstItem="hmS-Xp-5AJ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="2QX-No-Lvu"/>
                             <constraint firstItem="LLl-l8-10D" firstAttribute="centerY" secondItem="5dp-1n-3Yt" secondAttribute="centerY" id="3SI-aH-yLa"/>
+                            <constraint firstItem="nMe-wC-8K8" firstAttribute="top" secondItem="5JZ-ae-Y2b" secondAttribute="bottom" constant="20" id="8Re-LF-caI"/>
                             <constraint firstItem="4OH-UW-J79" firstAttribute="centerY" secondItem="nMe-wC-8K8" secondAttribute="centerY" id="8cY-fg-5Mo"/>
                             <constraint firstAttribute="trailing" secondItem="nX6-JL-Z2t" secondAttribute="trailing" constant="30" id="A52-2a-2EO"/>
                             <constraint firstAttribute="trailing" secondItem="cT7-Cw-2s1" secondAttribute="trailing" constant="30" id="GAY-oS-IJE"/>
                             <constraint firstItem="Yqn-EM-gaw" firstAttribute="top" secondItem="5dp-1n-3Yt" secondAttribute="bottom" constant="5" id="H8O-dV-qEu"/>
+                            <constraint firstItem="pCa-Iz-fxn" firstAttribute="leading" secondItem="Fqs-xz-5rn" secondAttribute="trailing" constant="10" id="Iac-hy-1kH"/>
+                            <constraint firstItem="Fqs-xz-5rn" firstAttribute="leading" secondItem="hIp-aR-DeJ" secondAttribute="leading" id="Jyw-By-5RU"/>
                             <constraint firstItem="4OH-UW-J79" firstAttribute="leading" secondItem="nMe-wC-8K8" secondAttribute="trailing" constant="10" id="K6M-TX-u47"/>
+                            <constraint firstItem="z4m-BT-jiO" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="LFZ-ie-VlG"/>
                             <constraint firstItem="5dp-1n-3Yt" firstAttribute="top" secondItem="nMe-wC-8K8" secondAttribute="bottom" constant="5" id="MpA-GS-f0j"/>
                             <constraint firstItem="LLl-l8-10D" firstAttribute="leading" secondItem="5dp-1n-3Yt" secondAttribute="trailing" constant="10" id="Ofa-GU-7eh"/>
                             <constraint firstItem="5JZ-ae-Y2b" firstAttribute="top" secondItem="hmS-Xp-5AJ" secondAttribute="bottom" constant="15" id="Pe4-Mp-Em8"/>
                             <constraint firstItem="nX6-JL-Z2t" firstAttribute="top" secondItem="Yqn-EM-gaw" secondAttribute="bottom" constant="8" id="QdG-a2-GAa"/>
+                            <constraint firstItem="5dp-1n-3Yt" firstAttribute="leading" secondItem="nMe-wC-8K8" secondAttribute="leading" id="RCV-8t-Wr5"/>
                             <constraint firstItem="nX6-JL-Z2t" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="Rl1-mJ-SeV"/>
+                            <constraint firstItem="nMe-wC-8K8" firstAttribute="leading" secondItem="z4m-BT-jiO" secondAttribute="trailing" constant="10" id="Sjk-lV-aJs"/>
+                            <constraint firstItem="Fqs-xz-5rn" firstAttribute="centerY" secondItem="5dp-1n-3Yt" secondAttribute="centerY" id="YIq-Zz-fPF"/>
+                            <constraint firstItem="pCa-Iz-fxn" firstAttribute="centerY" secondItem="Fqs-xz-5rn" secondAttribute="centerY" id="YkQ-TW-5hW"/>
+                            <constraint firstItem="hIp-aR-DeJ" firstAttribute="centerY" secondItem="nMe-wC-8K8" secondAttribute="centerY" id="Z8J-7j-847"/>
                             <constraint firstItem="cT7-Cw-2s1" firstAttribute="leading" secondItem="hmS-Xp-5AJ" secondAttribute="trailing" constant="15" id="blM-tl-vPG"/>
-                            <constraint firstItem="Yqn-EM-gaw" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="cHO-fD-GNt"/>
+                            <constraint firstItem="z4m-BT-jiO" firstAttribute="top" secondItem="5JZ-ae-Y2b" secondAttribute="bottom" constant="20" id="fjW-IC-fFk"/>
                             <constraint firstItem="hmS-Xp-5AJ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="gSb-Ho-ijg"/>
+                            <constraint firstItem="Ws7-00-mrp" firstAttribute="centerY" secondItem="hIp-aR-DeJ" secondAttribute="centerY" id="hSM-jz-0qE"/>
                             <constraint firstAttribute="trailing" secondItem="5JZ-ae-Y2b" secondAttribute="trailing" constant="30" id="kA0-7e-3Uo"/>
-                            <constraint firstItem="Yqn-EM-gaw" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="noc-l5-oM4"/>
                             <constraint firstItem="ga0-X9-bGd" firstAttribute="centerY" secondItem="Yqn-EM-gaw" secondAttribute="centerY" id="o21-Ub-sCC"/>
+                            <constraint firstItem="Ws7-00-mrp" firstAttribute="leading" secondItem="hIp-aR-DeJ" secondAttribute="trailing" constant="10" id="ooV-nd-uI4"/>
                             <constraint firstItem="cT7-Cw-2s1" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="phh-ah-Dlr"/>
                             <constraint firstAttribute="bottom" secondItem="nX6-JL-Z2t" secondAttribute="bottom" constant="25" id="rU8-wp-6q3"/>
                             <constraint firstItem="5JZ-ae-Y2b" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="rkB-yQ-TOI"/>
-                            <constraint firstItem="nMe-wC-8K8" firstAttribute="top" secondItem="5JZ-ae-Y2b" secondAttribute="bottom" constant="20" id="uLi-Qe-TwL"/>
-                            <constraint firstItem="5dp-1n-3Yt" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="uVk-2O-P3w"/>
+                            <constraint firstItem="hIp-aR-DeJ" firstAttribute="leading" secondItem="4OH-UW-J79" secondAttribute="trailing" constant="30" id="xEb-Lz-IqT"/>
+                            <constraint firstItem="Yqn-EM-gaw" firstAttribute="leading" secondItem="nMe-wC-8K8" secondAttribute="leading" id="xgr-ca-cFM"/>
                             <constraint firstItem="ga0-X9-bGd" firstAttribute="leading" secondItem="Yqn-EM-gaw" secondAttribute="trailing" constant="10" id="yRe-SN-Rhe"/>
-                            <constraint firstItem="5dp-1n-3Yt" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="zc1-Ww-9z3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -869,6 +924,8 @@
                         <outlet property="imageAlphaIcon" destination="LLl-l8-10D" id="puf-Bu-jcb"/>
                         <outlet property="imageOptimIcon" destination="4OH-UW-J79" id="mo4-JT-M8e"/>
                         <outlet property="jpegMiniIcon" destination="ga0-X9-bGd" id="yVK-3Z-In4"/>
+                        <outlet property="jpegMiniLiteIcon" destination="Ws7-00-mrp" id="MCf-06-UR8"/>
+                        <outlet property="jpegMiniProIcon" destination="pCa-Iz-fxn" id="8FJ-kF-Od9"/>
                         <outlet property="watchBtn" destination="89S-GY-DHd" id="Qo3-9t-UeM"/>
                     </connections>
                 </viewController>

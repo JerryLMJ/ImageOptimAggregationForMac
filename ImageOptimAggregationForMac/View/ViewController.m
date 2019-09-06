@@ -28,6 +28,8 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
 @property (weak) IBOutlet NSImageView *imageOptimIcon;
 @property (weak) IBOutlet NSImageView *imageAlphaIcon;
 @property (weak) IBOutlet NSImageView *jpegMiniIcon;
+@property (weak) IBOutlet NSImageView *jpegMiniLiteIcon;
+@property (weak) IBOutlet NSImageView *jpegMiniProIcon;
 
 @property (weak) IBOutlet NSScrollView *detailScrollView;
 @property (unsafe_unretained) IBOutlet NSTextView *detailTextView;
@@ -57,9 +59,11 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
     NSImage * trueIcon  = [NSImage imageNamed:@"true"];
     NSImage * falseIcon = [NSImage imageNamed:@"false"];
     
-    _imageOptimIcon.image = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"net.pornel.ImageOptim"] ? trueIcon : falseIcon;
-    _imageAlphaIcon.image = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"net.pornel.ImageAlpha"] ? trueIcon : falseIcon;
-    _jpegMiniIcon.image   = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"com.icvt.JPEGmini-Pro-retail"] ? trueIcon : falseIcon;
+    _imageOptimIcon.image   = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"net.pornel.ImageOptim"] ? trueIcon : falseIcon;
+    _imageAlphaIcon.image   = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"net.pornel.ImageAlpha"] ? trueIcon : falseIcon;
+    _jpegMiniIcon.image     = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"com.icvt.JPEGmini"] ? trueIcon : falseIcon;
+    _jpegMiniLiteIcon.image = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"com.icvt.JPEGminiLite"] ? trueIcon : falseIcon;
+    _jpegMiniProIcon.image  = [AppInstalledHelper isInstallAppOfBundleIdentifier:@"com.icvt.JPEGmini-Pro-retail"] ? trueIcon : falseIcon;
 }
 
 
@@ -85,7 +89,7 @@ void fsevents_callback(ConstFSEventStreamRef streamRef,
     }
   
     [[_detailTextView textStorage] setAttributedString:_detailAttributStr];
-    [_detailScrollView.contentView scrollToPoint:CGPointMake(0, _detailScrollView.contentView.frame.size.height)];
+    [_detailScrollView.contentView scrollToPoint:CGPointMake(0, _detailScrollView.contentView.frame.size.height-_detailScrollView.frame.size.height)];
 }
 
 - (void)setRepresentedObject:(id)representedObject {

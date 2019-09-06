@@ -11,12 +11,10 @@
 @implementation ImageOptimCli
 
 + (void)processFile:(NSString *)filePath {
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DetailLog" object:@{@"type": @"path", @"detail": filePath } userInfo:nil];
-    NSPipe *pipe = [NSPipe pipe];
-    NSFileHandle *file = pipe.fileHandleForReading;
     
     NSTask *task = [[NSTask alloc] init];
-    task.standardOutput = pipe;
     NSString * lanchPath = [[NSBundle mainBundle] pathForResource:@"imageoptim" ofType:nil];
     NSLog(@"----lanchPath : %@",lanchPath);
     task.launchPath = lanchPath;
@@ -26,15 +24,24 @@
     task.terminationHandler = ^(NSTask * _Nonnull task) {
         NSLog(@"----finished");
     };
+
+    NSPipe *pipe = [NSPipe pipe];
+    task.standardOutput = pipe;
+    NSFileHandle *file = pipe.fileHandleForReading;
+    [file waitForDataInBackgroundAndNotify];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSFileHandleDataAvailableNotification object:file queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        NSFileHandle *fh = [note object];
+        NSData *data = [fh availableData];
+        if (data.length > 0) { // if data is found, re-register for more data (and print)
+            [fh waitForDataInBackgroundAndNotify];
+            NSString *log = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog (@"----grep returned :\n%@", log);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DetailLog" object:@{@"type": @"detail", @"detail": log } userInfo:nil];
+        }
+    }];
+
     [task launch];
-    
-    
-    // 输出执行log
-    NSData *data = [file readDataToEndOfFile];
-    [file closeFile];
-    NSString *grepOutput = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"DetailLog" object:@{@"type": @"detail", @"detail": grepOutput } userInfo:nil];
-    NSLog (@"----grep returned :\n%@", grepOutput);
 }
 
 @end
