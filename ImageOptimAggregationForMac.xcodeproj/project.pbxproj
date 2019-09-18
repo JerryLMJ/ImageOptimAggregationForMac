@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E483949623320A780052416F /* imageoptim in Resources */ = {isa = PBXBuildFile; fileRef = E483949523320A780052416F /* imageoptim */; };
 		E48E01C322C5EE2D00A4E956 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E48E01C222C5EE2D00A4E956 /* AppDelegate.m */; };
 		E48E01C622C5EE2D00A4E956 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E48E01C522C5EE2D00A4E956 /* ViewController.m */; };
 		E48E01C822C5EE2F00A4E956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48E01C722C5EE2F00A4E956 /* Assets.xcassets */; };
 		E48E01CB22C5EE2F00A4E956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48E01C922C5EE2F00A4E956 /* Main.storyboard */; };
 		E48E01CE22C5EE2F00A4E956 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48E01CD22C5EE2F00A4E956 /* main.m */; };
-		E4EEBF9A23169B08008CFB4A /* imageoptim in Resources */ = {isa = PBXBuildFile; fileRef = E4EEBF9923169B08008CFB4A /* imageoptim */; };
 		E4EEBF9D23169D15008CFB4A /* ImageOptimCli.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EEBF9C23169D15008CFB4A /* ImageOptimCli.m */; };
 		E4EEBFA42316A3E2008CFB4A /* AppInstalledHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EEBFA32316A3E2008CFB4A /* AppInstalledHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E483949523320A780052416F /* imageoptim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = imageoptim; sourceTree = "<group>"; };
 		E48E01BE22C5EE2D00A4E956 /* ImageOptimAggregationForMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageOptimAggregationForMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48E01C122C5EE2D00A4E956 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E48E01C222C5EE2D00A4E956 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,7 +29,6 @@
 		E48E01CC22C5EE2F00A4E956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E48E01CD22C5EE2F00A4E956 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E48E01CF22C5EE2F00A4E956 /* ImageOptimAggregationForMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageOptimAggregationForMac.entitlements; sourceTree = "<group>"; };
-		E4EEBF9923169B08008CFB4A /* imageoptim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = imageoptim; sourceTree = "<group>"; };
 		E4EEBF9B23169D15008CFB4A /* ImageOptimCli.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageOptimCli.h; sourceTree = "<group>"; };
 		E4EEBF9C23169D15008CFB4A /* ImageOptimCli.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageOptimCli.m; sourceTree = "<group>"; };
 		E4EEBFA22316A3E2008CFB4A /* AppInstalledHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInstalledHelper.h; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		E4EEBFA123169D9C008CFB4A /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				E4EEBF9923169B08008CFB4A /* imageoptim */,
+				E483949523320A780052416F /* imageoptim */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -173,7 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48E01C822C5EE2F00A4E956 /* Assets.xcassets in Resources */,
-				E4EEBF9A23169B08008CFB4A /* imageoptim in Resources */,
+				E483949623320A780052416F /* imageoptim in Resources */,
 				E48E01CB22C5EE2F00A4E956 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
